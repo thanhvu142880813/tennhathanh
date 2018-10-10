@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\signals;
+use App\categories;
 
 class HomeController extends Controller
 {
@@ -21,8 +23,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $data = [];
+        $signals = signals::all();
+        $categories = categories::all();
+        $data['signals'] = $signals;
+        $data['categories'] = $categories;
+        return view('client.index',$data);
     }
 }

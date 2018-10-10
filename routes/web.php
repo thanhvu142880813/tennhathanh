@@ -15,9 +15,10 @@ use App\categories;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('Trang-chu',function(){
-	return view('client.index');
-})->name('index');
+//Route::get('home',function(){
+//	return view('client.index');
+//})->name('index');
+Route::get('trangchu','HomeController@index');
 //admin_trangchu
 Route::get('admin',function(){
 	return view('admin.trangchu.trangchu');
@@ -34,9 +35,7 @@ Route::get('sua_loai_bien_bao',function(){
 })->name('sualoaibienbao');
 
 //bienbao
-Route::get('danh_sach_bien_bao',function(){
-	return view('admin.bien_bao.dsachbienbao');
-})->name('danhsachbienbao');
+Route::get('danh_sach_bien_bao', 'SignalController@index')->name('danhsachbienbao');
 Route::get('them_bien_bao',function(){
 	return view('admin.bien_bao.thembienbao');
 })->name('thembienbao');
@@ -86,3 +85,7 @@ Route::group(['prefix'=>'admin'],function(){
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
