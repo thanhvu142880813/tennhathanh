@@ -18,7 +18,6 @@ Route::get('/', function () {
 //Route::get('home',function(){
 //	return view('client.index');
 //})->name('index');
-Route::get('trangchu','HomeController@index');
 //admin_trangchu
 Route::get('admin',function(){
 	return view('admin.trangchu.trangchu');
