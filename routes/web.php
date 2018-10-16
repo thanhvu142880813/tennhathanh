@@ -77,11 +77,15 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::post('themuser','usercontroller@postthem')->name('themuser');
 		Route::post('xoauser/{id}','usercontroller@xoauser')->name('xoauser');
 	});
+	//bienbao
+	Route::group(['prefix'=>'bienbao'],function(){
+		Route::get('dsachbienbao','SignalController@index');
+		Route::get('xoabienbao/{signal_id}','SignalController@destroy');		
+		Route::get('suabienbao/{signal_id}','SignalController@edit');
+		Route::post('suabienbao/{signal_id}','SignalController@update')->name('suabienbao');
+		Route::get('thembienbao','SignalController@create');
+	});
 });
-
-
-
-
 
 
 

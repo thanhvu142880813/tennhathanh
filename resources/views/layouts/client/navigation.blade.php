@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a class="navbar-brand" href="../index.html">TH2T
+               <a class="navbar-brand" href="{{ route('home')}}">TH2T
                 <img src="source/img/logo.png" alt="" id="logo">
                 </a>
 
@@ -23,7 +23,7 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i>  {{ Auth::user()->user_name }}</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Cài đặt</a>
                         </li>
@@ -58,10 +58,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Loại biển<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cate_list.html">Danh sách loại biển báo</a>
+                                    <a href="admin/loaibien/dsachloaibien">Danh sách loại biển báo</a>
                                 </li>
                                 <li>
-                                    <a href="cate_add.html">Thêm loại biển báo</a>
+                                    <a href="admin/loaibien/thembienbao">Thêm loại biển báo</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -70,10 +70,10 @@
                             <a href="#"><i class="fa fa-cube fa-fw"></i> Biển báo<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="product_list.html">Danh sách biển báo</a>
+                                    <a href="admin/bienbao/dsachbienbao">Danh sách biển báo</a>
                                 </li>
                                 <li>
-                                    <a href="product_add.html">Thêm biển báo</a>
+                                    <a href="admin/bienbao/thembienbao">Thêm biển báo</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -82,10 +82,10 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="user_list.html">Danh sách User</a>
+                                    <a href="admin/user/dsachuser">Danh sách User</a>
                                 </li>
                                 <li>
-                                    <a href="user_add.html">Thêm User</a>
+                                    <a href="admin/user/themuser">Thêm User</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

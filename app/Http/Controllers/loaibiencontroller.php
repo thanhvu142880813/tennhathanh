@@ -101,9 +101,9 @@ class loaibiencontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getxoa($id)
+    public function getxoa($signal_id)
     {
-        $loaibien = categories::find($id);
+        $loaibien = categories::find($signal_id);
         $loaibien->delete();
         return redirect('admin/loaibien/dsachloaibien')->with('thongbao','Xóa thành công');
     }

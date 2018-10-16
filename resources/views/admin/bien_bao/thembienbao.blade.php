@@ -11,28 +11,41 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="" method="POST">
+                        <div class="panel-body">
+                            @if(count($errors)>0)
+                                <div class="alert alert-danger" style="text-align: center;">
+                                    @foreach ($errors->all() as $err)
+                                        {{$err}} <br>
+                                    @endforeach
+                                </div>
+                    
+                            @endif
+                            @if(session('thongbao'))
+                            <div class="alert alert-success" style="text-align: center;">
+                                {{session('thongbao')}}
+                            </div>
+                            @endif
+                         </div>
+                        <form action="admin/bien_bao/thembienbao" method="POST">
                             <div class="form-group">
                                 <label>Tên biển báo</label>
-                                <input class="form-control" name="txtName" placeholder="Nhập tên biển báo" />
+                                <input class="form-control" name="signal_name" placeholder="Nhập tên biển báo" />
                             </div>
                             <div class="form-group">
                                 <label>Biển số:</label>
-                                <input class="form-control" name="txtPrice" placeholder="Nhập biển số bao nhiêu" />
+                                <input class="form-control" name="signal_number" placeholder="Nhập biển số bao nhiêu" />
                             </div>
                             <div class="form-group">
                                 <label>Loại</label>
-                                 <select class="form-control">
+                                 <select class="form-control" id="signal_category_id">
                                     <option value="0">Chọn loại biển báo</option>
-                                    <option value="">Biển cấm</option>
-                                    <option value="">Biển chỉ dẫn</option>
-                                    <option value="">Biển báo nguy hiểm</option>
-                                    <option value="">Biển hiệu lệnh</option>
+                                    {!! $categoryOption !!}
+                                    
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Nội dung</label>
-                                <textarea class="form-control" rows="3" name="txtContent"></textarea>
+                                <textarea class="form-control" rows="3" name="signal_content"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Ảnh</label>
@@ -40,7 +53,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Keywords</label>
-                                <input class="form-control" name="txtOrder" placeholder="Please Enter Category Keywords" />
+                                <input class="form-control" name="signal_slug" placeholder="Please Enter Category Keywords" />
                             </div>
                             <div class="form-group">
                                 <label>Mô tả</label>

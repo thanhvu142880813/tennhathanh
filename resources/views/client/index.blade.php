@@ -6,7 +6,7 @@
 	<title>TH2T</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<LINK REL="SHORTCUT ICON"  HREF="../img/logo.png">
+	<LINK REL="SHORTCUT ICON"  HREF="/source/img/logo.png">
 
 <!-- Favicons
 	================================================== -->
@@ -35,7 +35,7 @@
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-				<a class="navbar-brand page-scroll" href="#page-top" style="font-size: 50px"><img src="img/logo.png" style="    float: left;height: 118px;margin-top: -50px;;">TH2T</a> </div>
+				<a class="navbar-brand page-scroll" href="#page-top" style="font-size: 50px"><img src="source/img/logo.png" style="    float: left;height: 118px;margin-top: -50px;;">TH2T</a> </div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -53,7 +53,7 @@
 				
 						</li>
 						<li>
-							<a href="login.html" class="" title="">Đăng nhập</a>
+							<a href="" class="" title="">Đăng nhập</a>
 						</li>
 
 					</ul>
@@ -97,23 +97,23 @@
 					@if ($categories && count($categories) > 0)
                     @foreach ($categories as $item)
 					<ul class="nav nav-pills" style="margin-left: 300px">						
-						<li><a data-toggle="pill" href="{{ $item->slug }}">{{ $item->name }}</a></li>
+						<li><a data-toggle="pill" href="{{ $item->slug }}">{{ $item->category_name }}</a></li>
 						
 					</ul>
 					<div class="tab-content">
 						@if($signals && count($signals) > 0)
 						@foreach ($signals as $item2)
-						@if ($item2->category_id == $item->id)
-					    <div id="{{ $item->slug }}" class="tab-pane fade in active ">
+						@if ($item2->signal_category_id == $item->category_id)
+					    <div id="{{ $item->signal_slug }}" class="tab-pane fade in active ">
 							<div class="row">
 					      <div class="portfolio-items">
-					        <div class="col-sm-6 col-md-2 col-lg-3 residential">
+					        <div class="col-sm-6 col-md-2 col-lg-3">
 					          <div class="portfolio-item">
-					            <div class="hover-bg"> <a href="" title=" {{ $item2->content }}" data-lightbox-gallery="gallery1">
+					            <div class="hover-bg"> <a href="" title=" {{ $item2->signal_content }}" data-lightbox-gallery="gallery1">
 					              <div class="hover-text">
-					                <h4>{{ $item2->name}}</h4>
+					                <h4>{{ $item2->signal_name}}</h4>
 					              </div>
-					              <img src="{{ $item2->image}}" class="img-responsive" alt="Project Title"> </a> </div>
+					              <img src="source/img/{{ $item2->signal_image}}" class="img-responsive" alt="Project Title"> </a> </div>
 					          </div>
 					        </div>
 					      </div>
@@ -126,6 +126,75 @@
 
 						@endforeach
 						@endif
+				</div>
+
+			</div>
+		</div>
+		<!-- Carousel --->
+		<div id="team" class="text-center">
+			<div class="overlay">
+				<div class="container">
+					<div class="col-md-8 col-md-offset-2 section-title">
+						<h2>Đội của chúng tôi</h2>
+						<hr>
+						<p></p>
+					</div>
+					<div id="row">
+						<div class="owl-carousel owl-theme">
+		            <div class="item">
+		              <a href="#"><img src="img/1.jpg"></a>
+		            </div>
+		            <div class="item">
+		              <a href="#"><img src="img/2.jpg"></a>
+		            </div>
+		            <div class="item">
+		             <a href="#"><img src="img/3.jpg"></a>
+		            </div>
+		            <div class="item">
+		              <a href="#"><img src="img/4.jpg"></a>
+		            </div>
+		            <div class="item">
+		               <a href="#"><img src="img/6.jpg"></a>
+		            </div>
+		            
+		     </div>
+						<div id="demo" class="carousel slide" data-ride="carousel">
+						  <ul class="carousel-indicators">
+						    <li data-target="#demo" data-slide-to="0" class="active"></li>
+						    <li data-target="#demo" data-slide-to="1"></li>
+						    <li data-target="#demo" data-slide-to="2"></li>
+						  </ul>
+						  <div class="carousel-inner">
+						    <div class="carousel-item active">
+						      <img src="la.jpg" alt="Los Angeles" width="1100" height="500">
+						      <div class="carousel-caption">
+						        <h3>Los Angeles</h3>
+						        <p>We had such a great time in LA!</p>
+						      </div>   
+						    </div>
+						    <div class="carousel-item">
+						      <img src="chicago.jpg" alt="Chicago" width="1100" height="500">
+						      <div class="carousel-caption">
+						        <h3>Chicago</h3>
+						        <p>Thank you, Chicago!</p>
+						      </div>   
+						    </div>
+						    <div class="carousel-item">
+						      <img src="ny.jpg" alt="New York" width="1100" height="500">
+						      <div class="carousel-caption">
+						        <h3>New York</h3>
+						        <p>We love the Big Apple!</p>
+						      </div>   
+						    </div>
+						  </div>
+						  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+						    <span class="carousel-control-prev-icon"></span>
+						  </a>
+						  <a class="carousel-control-next" href="#demo" data-slide="next">
+						    <span class="carousel-control-next-icon"></span>
+						  </a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -204,5 +273,6 @@
 			<script type="text/javascript" src="source/js/backtotop.js"></script>
 	</body>
 </html>
+<script>
 
 
