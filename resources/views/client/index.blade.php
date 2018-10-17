@@ -97,15 +97,16 @@
 					@if ($categories && count($categories) > 0)
                     @foreach ($categories as $item)
 					<ul class="nav nav-pills" style="margin-left: 300px">						
-						<li><a data-toggle="pill" href="{{ $item->slug }}">{{ $item->category_name }}</a></li>
+						<li ><a data-toggle="pill" href="#{{ $item->category_slug }}">{{ $item->category_name }}</a></li>
 						
 					</ul>
 					<div class="tab-content">
-						@if($signals && count($signals) > 0)
-						@foreach ($signals as $item2)
-						@if ($item2->signal_category_id == $item->category_id)
-					    <div id="{{ $item->signal_slug }}" class="tab-pane fade in active ">
+					    <div id="{{ $item->category_slug }}" class="tab-pane fade in active ">
+					    	@if($signals && count($signals) > 0)
+								@foreach ($signals as $item2)
+								@if ($item2->signal_category_id == $item->category_id)
 							<div class="row">
+								
 					      <div class="portfolio-items">
 					        <div class="col-sm-6 col-md-2 col-lg-3">
 					          <div class="portfolio-item">
@@ -113,15 +114,16 @@
 					              <div class="hover-text">
 					                <h4>{{ $item2->signal_name}}</h4>
 					              </div>
-					              <img src="source/img/{{ $item2->signal_image}}" class="img-responsive" alt="Project Title"> </a> </div>
+					              <img src="source/img/{{ $item2->signal_image}}" class="img-responsive" alt="{{ $item2->signal_name}}"> </a> </div>
 					          </div>
 					        </div>
 					      </div>
 					   		</div>
-					   	</div>
 					   	@endif
 					   	@endforeach
 					   	@endif
+					   	</div>
+					   
 					  </div>
 
 						@endforeach
@@ -140,60 +142,7 @@
 						<p></p>
 					</div>
 					<div id="row">
-						<div class="owl-carousel owl-theme">
-		            <div class="item">
-		              <a href="#"><img src="img/1.jpg"></a>
-		            </div>
-		            <div class="item">
-		              <a href="#"><img src="img/2.jpg"></a>
-		            </div>
-		            <div class="item">
-		             <a href="#"><img src="img/3.jpg"></a>
-		            </div>
-		            <div class="item">
-		              <a href="#"><img src="img/4.jpg"></a>
-		            </div>
-		            <div class="item">
-		               <a href="#"><img src="img/6.jpg"></a>
-		            </div>
-		            
-		     </div>
-						<div id="demo" class="carousel slide" data-ride="carousel">
-						  <ul class="carousel-indicators">
-						    <li data-target="#demo" data-slide-to="0" class="active"></li>
-						    <li data-target="#demo" data-slide-to="1"></li>
-						    <li data-target="#demo" data-slide-to="2"></li>
-						  </ul>
-						  <div class="carousel-inner">
-						    <div class="carousel-item active">
-						      <img src="la.jpg" alt="Los Angeles" width="1100" height="500">
-						      <div class="carousel-caption">
-						        <h3>Los Angeles</h3>
-						        <p>We had such a great time in LA!</p>
-						      </div>   
-						    </div>
-						    <div class="carousel-item">
-						      <img src="chicago.jpg" alt="Chicago" width="1100" height="500">
-						      <div class="carousel-caption">
-						        <h3>Chicago</h3>
-						        <p>Thank you, Chicago!</p>
-						      </div>   
-						    </div>
-						    <div class="carousel-item">
-						      <img src="ny.jpg" alt="New York" width="1100" height="500">
-						      <div class="carousel-caption">
-						        <h3>New York</h3>
-						        <p>We love the Big Apple!</p>
-						      </div>   
-						    </div>
-						  </div>
-						  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-						    <span class="carousel-control-prev-icon"></span>
-						  </a>
-						  <a class="carousel-control-next" href="#demo" data-slide="next">
-						    <span class="carousel-control-next-icon"></span>
-						  </a>
-						</div>
+						
 					</div>
 				</div>
 			</div>

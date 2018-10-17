@@ -22,7 +22,7 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
-                                <th>ID</th>
+                                <th>STT</th>
                                 <th>Tên</th>
                                 <th>Category Parent</th>
                                 <th>Mô tả</th>

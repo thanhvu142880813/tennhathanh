@@ -11,7 +11,7 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="" method="POST">
+                        <form action="admin/bienbao/suabienbao/{{$data->signal_id}}" method="POST">
                             <div class="form-group">
                                 <label>Tên biển báo</label>
                                 <input class="form-control" name="txtName" placeholder="Nhập tên biển báo" />
@@ -55,7 +55,7 @@
                                     <input name="rdoStatus" value="2" type="radio">Ẩn
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-default">Thêm</button>
+                            <button type="submit" class="btn btn-default">Sửa</button>
                             <button type="reset" class="btn btn-default">Reset</button>
                         <form>
                     </div>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="">
-    <title>Quản lí biển báo</title>
+    <title>Quản lý biển báo</title>
     <LINK REL="SHORTCUT ICON"  HREF="source/img/logo.png">
     <base href="{{asset('')}}" target="_blank, _self, _parent, _top">
     <!-- Bootstrap Core CSS -->

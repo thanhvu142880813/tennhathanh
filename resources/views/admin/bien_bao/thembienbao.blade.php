@@ -26,7 +26,7 @@
                             </div>
                             @endif
                          </div>
-                        <form action="admin/bien_bao/thembienbao" method="POST">
+                        <form action="admin/bienbao/thembienbao" method="POST">
                             <div class="form-group">
                                 <label>Tên biển báo</label>
                                 <input class="form-control" name="signal_name" placeholder="Nhập tên biển báo" />

@@ -62,18 +62,17 @@ class SignalController extends Controller
         return redirect('admin/bienbao/dsachbienbao')->with('danger','Không thể tạo danh mục');
     }
 
-    public function edit($signal_id)
+    public function edit($id)
     {
-        $data = [];
-        $signals = signals::findOrFail($signal_id);
-        $data['signals'] = $signals;
-
-        return view('admin.bien_bao.suabienbao', $data);
+       
+         $data =  signals::find($id);
+         dd($data);
+        // return view('admin.bien_bao.suabienbao', $data);
     }
 
-    public function update(Request $request, $signal_id)
+    public function update(Request $request, $id)
     {
-        $signals = signals::find($signal_id);
+        $signals = signals::find($id);
         $data = $request->all();
 
         $validate = [
@@ -88,9 +87,9 @@ class SignalController extends Controller
         return redirect('admin/bienbao/dsachbienbao')->with('danger','signals can not update!');
     }
 
-     public function destroy($signal_id)
+     public function destroy($id)
     {
-        $signals = signals::find($signal_id);
+        $signals = signals::find($id);
         if ($signals) {
             if ($signals->delete()) {
                     return redirect('admin/bienbao/dsachbienbao')->with('success','signals has been deleted');
