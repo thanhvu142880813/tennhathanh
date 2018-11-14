@@ -80,10 +80,11 @@ Route::group(['prefix'=>'admin'],function(){
 	//bienbao
 	Route::group(['prefix'=>'bienbao'],function(){
 		Route::get('dsachbienbao','SignalController@index');
-		Route::get('xoabienbao/{id}','SignalController@destroy');		
-		Route::get('suabienbao/{id}','SignalController@edit');
-		Route::post('suabienbao/{id}','SignalController@update')->name('suabienbao');
-		Route::get('thembienbao','SignalController@create');
+		Route::post('xoabienbao/{id}','SignalController@destroy');		
+		Route::get('suabienbao/{id}','SignalController@getsua');
+		Route::post('suabienbao/{id}','SignalController@postsua')->name('suabienbao');
+		Route::get('thembienbao','SignalController@getthem');
+		Route::post('thembienbao','SignalController@postthem')->name('thembienbao');
 	});
 });
 

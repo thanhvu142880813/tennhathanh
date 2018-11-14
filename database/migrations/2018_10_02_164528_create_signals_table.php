@@ -14,7 +14,7 @@ class CreateSignalsTable extends Migration
     public function up()
     {
         Schema::create('signals', function (Blueprint $table) {
-            $table->increments('signal_id');
+            $table->increments('id');
             $table->string('signal_name');
             $table->string('signal_number');
             $table->text('signal_content');

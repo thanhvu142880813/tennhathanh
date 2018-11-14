@@ -73,7 +73,7 @@
                                     <a href="admin/bienbao/dsachbienbao">Danh sách biển báo</a>
                                 </li>
                                 <li>
-                                    <a href="admin/bienbao/thembienbao">Thêm biển báo</a>
+                                    <a href="{{ route('thembienbao') }}">Thêm biển báo</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

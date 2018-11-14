@@ -25,6 +25,10 @@
 	<link rel="stylesheet" type="text/css" href="source/css/nivo-lightbox/nivo-lightbox.css">
 	<link rel="stylesheet" type="text/css" href="source/css/nivo-lightbox/default.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="source/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="source/css/owl.theme.default.min.css">
+    <script src="source/js/jquery.min.js"></script>
+    <script src="source/js/owl.carousel.js"></script>
 
 <a href="#" class="cd-top">Back To Top</a>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -43,10 +47,10 @@
 						<li><a href="#portfolio" class="page-scroll">Xem biển báo</a></li>
 						<li><a href="#contact" class="page-scroll">Liên hệ</a></li>
 						<li>
-							<form class="navbar-form navbar-left">
+							<form class="navbar-form navbar-left" method="GET" action="/index">
 								
 					       		 <div class="form-group">
-					         		<input type="text" class="form-control" placeholder="Search">
+					         		<input type="text" class="form-control" name="title" placeholder="Search">
 					       		 </div>
 					        		<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
 					      </form>
@@ -92,61 +96,48 @@
 					<hr>
 					<p></p>
 				</div>
-			
-				<div class="categories">
+			<div class="categories">
+					<ul class="nav nav-pills" style="margin-left: 300px">
 					@if ($categories && count($categories) > 0)
-                    @foreach ($categories as $item)
-					<ul class="nav nav-pills" style="margin-left: 300px">						
-						<li ><a data-toggle="pill" href="#{{ $item->category_slug }}">{{ $item->category_name }}</a></li>
-						
+                  	@foreach ($categories as $item)
+						<li><a data-toggle="pill" href="#{{ $item->category_slug }}">{{ $item->category_name }}</a></li>
+					@endforeach
+					@endif
 					</ul>
-					<div class="tab-content">
-					    <div id="{{ $item->category_slug }}" class="tab-pane fade in active ">
-					    	@if($signals && count($signals) > 0)
-								@foreach ($signals as $item2)
-								@if ($item2->signal_category_id == $item->category_id)
+					<div class="tab-content">					
+					@if ($categories && count($categories) > 0)
+          			@foreach ($categories as $item)
+					 	<div id="{{ $item->category_slug }}" class="tab-pane fade in active ">
 							<div class="row">
-								
-					      <div class="portfolio-items">
-					        <div class="col-sm-6 col-md-2 col-lg-3">
-					          <div class="portfolio-item">
-					            <div class="hover-bg"> <a href="" title=" {{ $item2->signal_content }}" data-lightbox-gallery="gallery1">
-					              <div class="hover-text">
-					                <h4>{{ $item2->signal_name}}</h4>
-					              </div>
-					              <img src="source/img/{{ $item2->signal_image}}" class="img-responsive" alt="{{ $item2->signal_name}}"> </a> </div>
-					          </div>
-					        </div>
-					      </div>
-					   		</div>
-					   	@endif
-					   	@endforeach
-					   	@endif
-					   	</div>
-					   
-					  </div>
-
+								<div class="portfolio-items">
+						@if($signals && count($signals) > 0)
+						@foreach ($signals as $item2)
+						@if ($item2->signal_category_id == $item->id)					    
+					      <div class="col-sm-6 col-md-2 col-lg-3">
+					        <div class="portfolio-item">
+					          <div class="hover-bg"> <a href="" title=" {{ $item2->signal_content }}" data-lightbox-gallery="gallery1">
+					            <div class="hover-text">
+					               <h4>{{ $item2->signal_name}}</h4>
+					            </div>
+					            <img src="source/img/{{ $item2->signal_image}}" class="img-responsive" alt="Project Title"> </a> 
+											</div>
+					       	 </div>
+					       	</div>					 		  	
+					 	@endif	 
+					 @endforeach					
+						@endif
+						</div>
+						</div>
+						</div>
 						@endforeach
 						@endif
+					</div>	 
+					  1.Ap dụng chuẩn IEEE vào 1 công ty (slide)
+						2.Ap dụng chuẩn IEEE vào 1 project: đưa ra biểu mẫu... làm 1 số phần
 				</div>
+			</div>			
+		</div>
 
-			</div>
-		</div>
-		<!-- Carousel --->
-		<div id="team" class="text-center">
-			<div class="overlay">
-				<div class="container">
-					<div class="col-md-8 col-md-offset-2 section-title">
-						<h2>Đội của chúng tôi</h2>
-						<hr>
-						<p></p>
-					</div>
-					<div id="row">
-						
-					</div>
-				</div>
-			</div>
-		</div>
 		<!-- Contact Section -->
 		<div id="contact">
 			<div class="container">
@@ -222,6 +213,48 @@
 			<script type="text/javascript" src="source/js/backtotop.js"></script>
 	</body>
 </html>
-<script>
+ <script>
+           $('#carouselExample').on('slide.bs.carousel', function (e) {
+
+  
+    var $e = $(e.relatedTarget);
+    var idx = $e.index();
+    var itemsPerSlide = 4;
+    var totalItems = $('.carousel-item').length;
+    
+    if (idx >= totalItems-(itemsPerSlide-1)) {
+        var it = itemsPerSlide - (totalItems - idx);
+        for (var i=0; i<it; i++) {
+            // append slides to end
+            if (e.direction=="left") {
+                $('.carousel-item').eq(i).appendTo('.carousel-inner');
+            }
+            else {
+                $('.carousel-item').eq(0).appendTo('.carousel-inner');
+            }
+        }
+    }
+});
+
+
+  $('#carouselExample').carousel({ 
+                interval: 2000
+        });
+
+
+  $(document).ready(function() {
+/* show lightbox when clicking a thumbnail */
+    $('a.thumb').click(function(event){
+      event.preventDefault();
+      var content = $('.modal-body');
+      content.empty();
+        var title = $(this).attr("title");
+        $('.modal-title').html(title);        
+        content.html($(this).html());
+        $(".modal-profile").modal({show:true});
+    });
+
+  });
+ </script>
 
 

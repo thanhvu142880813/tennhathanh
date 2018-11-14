@@ -27,6 +27,7 @@ class HomeController extends Controller
     {
         $data = [];
         $signals = signals::all();
+        //dd($signals);
         $categories = categories::all();
         $data['signals'] = $signals;
         $data['categories'] = $categories;

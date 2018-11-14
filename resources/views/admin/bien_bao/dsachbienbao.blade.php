@@ -7,7 +7,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">Biển báo
                             <small>Danh sách</small>
-                            <a href="admin/bienbao/thembienbao"><button style="float: right;" type="button" class="btn btn-primary">Thêm</button></a>
+                            <a href="admin/bienbao/thembienbao"><button style="float: right;" type="button" class="btn btn-primary">Add</button></a>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -21,21 +21,21 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
-                                <th>STT</th>
-                                <th>Ảnh</th>
-                                <th style="width: 150px">Tên biển báo</th>
-                                <th>Biển số</th>
-                                <th>Loại</th>
-                                <th>Chi tiết</th>
-                                <th>Xóa</th>
-                                <th>Sửa</th>
+                                <th>ID</th>
+                                <th>Image</th>
+                                <th style="width: 150px">Name</th>
+                                <th>Number</th>
+                                <th>Category</th>
+                                <th>More</th>
+                                <th>Delete</th>
+                                <th>Edit</th>
                             </tr>
                         </thead>
                         <tbody>
                           @if ($signals && count($signals) > 0)
                           @foreach ($signals as $item)
                             <tr class="odd gradeX" align="center">
-                                <td>{{ $item->signal_id }}</td>
+                                <td>{{ $item->id }}</td>
                                 <td><img src="source/img/{{ $item->signal_image }}"></td>
                                 <td>{{ $item->signal_name }}</td>
                                 <td>{{ $item->signal_number }}</td>
@@ -76,8 +76,9 @@
                                     </div>
                                   </div>
                                 </td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/bienbao/xoabienbao/{{$item->signal_id}}"> Xóa</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/bienbao/suabienbao/{{$item->signal_id}}">Sửa</a></td>
+                                <td class="center"><button type="button" class="btn btn-warning deleteProduct" data-id="{{ $item->id }}" data-token="{{ csrf_token() }} " ><i class="fa fa-trash"></i></button></td>
+                                <!--<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/bienbao/xoabienbao/{{$item->signal_id}}" data-token="{{ csrf_token() }} "> Xóa</a></td> -->
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/bienbao/suabienbao/{{$item->id}}">Sửa</a></td>
                             </tr>
                           @endforeach
                           @endif
